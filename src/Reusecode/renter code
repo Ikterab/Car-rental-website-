@@ -1,0 +1,157 @@
+// const submissionJSON = {
+//             fname: value.fname,
+//             lname: value.lname,
+//             email:value.email,
+//         phone:value.phone,
+//         carbrand:value.carbrand,
+//         model:value.model,
+//         img:value.img.map((file)=>file.name),
+//             carnumber: value.carnumber,
+//         passengerseat:value.passengerseat,
+//             transmission: value.transmission,
+//             aircool: value.aircool,
+//             doors:value.doors,
+//             message: value.message,
+//         submittedAt: new Date().toISOString()
+//           }
+
+
+
+          Option 1: Use the downloaded JSON file and read it in other components.
+
+Option 2 (better for live use): Keep allUsers in a global state (Context or Redux) so any component can read it instantly without downloading/uploading.
+
+
+
+//
+
+
+
+
+
+// {/* <div className='flex justify-center gap-7'>
+//   {/* Car Brand Dropdown */}
+//   <select
+//     name='carbrand'
+//     value={value.carbrand}
+//     onChange={handlechange}
+//     className={`border-[1px] h-[48px] w-[280px] border-solid px-5 rounded-[4px] text-gray-700 ${
+//       error.carbrand ? 'border-red-500' : 'border-[#f0f0f0]'
+//     }`}
+//   >
+//     <option value=''>Select Car Brand*</option>
+//     {Object.keys(carData).map((brand, idx) => (
+//       <option key={idx} value={brand}>
+//         {brand}
+//       </option>
+//     ))}
+//   </select>
+
+//   {/* Model Dropdown (depends on brand) */}
+//   <select
+//     name='model'
+//     value={value.model}
+//     onChange={handlechange}
+//     disabled={!value.carbrand} // disable until brand selected
+//     className={`border-[1px] h-[48px] w-[280px] border-solid px-5 rounded-[4px] text-gray-700 ${
+//       error.model ? 'border-red-500' : 'border-[#f0f0f0]'
+//     }`}
+//   >
+//     <option value=''>Select Model*</option>
+//     {value.carbrand &&
+//       carData[value.carbrand].map((model, idx) => (
+//         <option key={idx} value={model}>
+//           {model}
+//         </option>
+//       ))}
+//   </select>
+// </div> */}
+  // const LocationInputDate =(field,type)=>(e) => {
+   
+  //   if (type === 'text') {
+  //     setSelection((prev) => ({ ...prev, [field]: e.target.value }))
+  //   }
+  //   else if (type === 'Date-local') {
+  //     const d = new Date(e.target.value)
+  //     const formatted = d.toLocaleString('en-us', {
+  //       weekday: "short",
+  //       day: '2-digit',
+  //       month: 'short',
+  //       year: "numeric",
+  //       minute: '2-digit',
+  //       hour: '2-digit'
+  //     })
+  //     setSelection((prev) => ({ ...prev, [field]: formatted }))
+  //   }
+// }
+  
+
+
+
+
+
+
+
+
+// export const rental = [
+//   {
+//     img0: jaguar,
+//     brand: 'Jaguar XE L P250',
+//     img1: star,
+//     rate: 4.8,
+//     review: '(2436 reviews)',
+//     specification: {
+//       img2: [user, '4 Passangers'],
+//       img3: [auto, 'Auto'],
+//       img4: [snow, 'Air Conditioning'],
+//       img5: [door, '4 Doors'],
+//     },
+//     price: '$1800',
+//     day: '/day',
+//   },
+//   {
+//     img0: Audi,
+//     brand: 'Audi R8',
+//     img1: star,
+//     rate: 4.6,
+//     review: '(1936 reviews)',
+//     specification: {
+//       img2: [user, '2 Passangers'],
+//       img3: [auto, 'Auto'],
+//       img4: [snow, 'Air Conditioning'],
+//       img5: [door, '2 Doors'],
+//     },
+//     price: '$2100',
+//     day: '/day',
+//   },
+//   {
+//     img0: BMW,
+//     brand: 'BMW M3',
+//     img1: star,
+//     rate: 4.5,
+//     review: '(2036 reviews)',
+//     specification: {
+//       img2: [user, '4 Passangers'],
+//       img3: [auto, 'Auto'],
+//       img4: [snow, 'Air Conditioning'],
+//       img5: [door, '4 Doors'],
+//     },
+//     price: '$1600',
+//     day: '/day',
+//   },
+//   {
+//     img0: lamborgini,
+//     brand: 'Lamborghini Huracan',
+//     img1: star,
+//     rate: 4.3,
+//     review: '(2236 reviews)',
+//     specification: {
+//       img2: [user, '2 Passangers'],
+//       img3: [auto, 'Auto'],
+//       img4: [snow, 'Air Conditioning'],
+//       img5: [door, '2 Doors'],
+//     },
+//     price: '$2300',
+//     day: '/day',
+//   },
+// ]

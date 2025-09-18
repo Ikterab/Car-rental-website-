@@ -1,0 +1,386 @@
+[
+  {
+    "img0": "/carsimg/Jaguarcar.svg",
+    "Id": "0",
+    "id": "0",
+    "Name": "Jaguar XE L P250",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "egg@gmail.com",
+    "Phone": "190000988999",
+    "brand": "Jaguar ",
+    "model": "XE L P250",
+    "message": "Will be shown soon. On working....",
+    "img1": "/Decorate/Star1.svg",
+    "rate": "4.8",
+    "review": "(2436 reviews)",
+    "location": "East Rampura dhaka",
+    "passengerseat": "4 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+
+    "price": "$1800",
+    "day": "/day"
+  },
+  {
+    "img0": "/carsimg/Audigari.svg",
+    "Id": "1",
+    "id": "1",
+    "fname": "Mt",
+    "lname": "kt",
+    "Name": "Audi R8",
+    "brand": "Audi",
+    "model": "R8",
+    "location": "West Rampura dhaka",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.6",
+    "review": "(1936 reviews)",
+
+    "passengerseat": "2 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "2 Doors",
+    "price": "$2100",
+    "day": "/day"
+  },
+
+  {
+    "img0": "/carsimg/BMWM3.svg",
+    "Id": "2",
+    "id": "2",
+    "Name": "BMW M3",
+    "fname": "Mt",
+    "lname": "kt",
+    "location": "North Badda dhaka",
+    "email": "egg@gmail.com",
+    "Phone": "190000988999",
+    "message": "Will be shown soon. On working....",
+
+    "brand": "BMW",
+    "model": "M3",
+
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.5",
+    "review": "(2036 reviews)",
+    "passengerseat": "4 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1600",
+    "day": "/day"
+  },
+
+  {
+    "img0": "/carsimg/Lamborginicar.svg",
+    "Name": "Lamborgini Hurrican",
+    "Id": "3",
+    "id": "3",
+    "fname": "Mt",
+    "lname": "kt",
+    "brand": "Lamborgini",
+    "model": "Hurrican",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.3",
+    "review": "(2236 reviews)",
+    "passengerseat": "2 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "2 Doors",
+    "price": "$1600",
+    "day": "/day"
+  },
+  {
+    "id": "4",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "egg@gmail.com",
+    "Phone": "190000988999",
+    "message": "Will be shown soon. On working....",
+    "location": "Gulshan, dhaka",
+    "img0": "/carsimg/tula-russia-february-28-2021-600nw-1932915491.webp",
+    "Name": "Toyota Corolla",
+
+    "brand": "Toyota",
+    "model": "Corolla",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.3",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1600",
+    "day": "/day"
+  },
+
+  {
+    "id": "5",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "egg@gmail.com",
+    "Phone": "190000988999",
+    "message": "Will be shown soon. On working....",
+    "location": "Gulshan, dhaka",
+    "img0": "/carsimg/Toyotacorollasuv.jpg",
+    "Name": "Toyota Suv",
+
+    "brand": "Toyota",
+    "model": "Suv",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.3",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1600",
+    "day": "/day"
+  },
+  {
+    "id": "6",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "egg@gmail.com",
+    "Phone": "190000988999",
+    "location": "Uttara, dhaka",
+    "message": "Will be shown soon. On working....",
+
+    "img0": "/carsimg/Toyota rush.png",
+    "Name": "Toyota Suv",
+
+    "brand": "Toyota",
+    "model": "Suv",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.3",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1600",
+    "day": "/day"
+  },
+  {
+    "id": "7",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "egg@gmail.com",
+    "Phone": "190000988999",
+    "location": "Uttara, dhaka",
+    "message": "Will be shown soon. On working....",
+
+    "img0": "/carsimg/download.jpg",
+    "Name": "Toyota Noah",
+
+    "brand": "Toyota",
+    "model": "Noah",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.0",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1600",
+    "day": "/day"
+  },
+
+  {
+    "id": "8",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "egg@gmail.com",
+    "Phone": "190000988999",
+    "message": "Will be shown soon. On working....",
+    "location": "Agargao, dhaka",
+    "img0": "/carsimg/Axio1.jpg",
+    "Name": "Toyota Axio",
+
+    "brand": "Toyota",
+    "model": "Corolla",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.0",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1600",
+    "day": "/day"
+  },
+  {
+    "id": "9",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "egg@gmail.com",
+    "Phone": "190000988999",
+    "location": "Bansree, dhaka",
+    "message": "Will be shown soon. On working....",
+
+    "img0": "/carsimg/Axio2.png",
+    "Name": "Toyota Axio 2007",
+
+    "brand": "Toyota",
+    "model": "Corolla",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.0",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1600",
+    "day": "/day"
+  },
+  {
+    "id": "10",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "egg10@gmail.com",
+    "Phone": "190000988999",
+    "location": "Meradia, dhaka",
+    "message": "With its commanding presence and solidity, the PALISADE holds a strong stance in the premium SUV class. Its dynamic proportions, sculpted details, and distinctive lighting create an unmistakable visual identity.",
+
+    "img0": "/carsimg/2025_palisade_1-preferred_ext_032_wc9.png",
+    "Name": "Hyundai Palisada",
+
+    "brand": "Hyundai",
+    "model": "Palisada",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.0",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1100",
+    "day": "/day"
+  },
+  {
+    "id": "11",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "egg10@gmail.com",
+    "Phone": "190000988999",
+    "location": "Meradia, dhaka",
+    "message": "Once you’ve decided to make a change, go for it. The driver’s seat in Tucson has a hassle-free line up of the most essential, cutting edge technologies that lets you stay focused on your mission. Tucson’s roomy interior is also big enough to accommodate all the tools you need to achieve your wins.",
+
+    "img0": "/carsimg/Hyundai_Tucson_2022_1.jpg",
+    "Name": "Hyundai Tucson 2022",
+
+    "brand": "Hyundai",
+    "model": "Tucson",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.0",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1100",
+    "day": "/day"
+  },
+  {
+    "id": "12",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "egg10@gmail.com",
+    "Phone": "190000988999",
+    "location": "Meradia,dhaka",
+    "message": "With its commanding presence and solidity, the PALISADE holds a strong stance in the premium SUV class. Its dynamic proportions, sculpted details, and distinctive lighting create an unmistakable visual identity.",
+
+    "img0": "/carsimg/sONATA.jpg",
+    "Name": "Hyundai Sonata",
+
+    "brand": "Hyundai",
+    "model": "Sedans",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.0",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1100",
+    "day": "/day"
+  },
+  {
+    "id": "13",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "egg10@gmail.com",
+    "Phone": "190000988999",
+    "location": "Meradia,dhaka",
+    "message": "Once you’ve decided to make a change, go for it. The driver’s seat in Tucson has a hassle-free line up of the most essential, cutting edge technologies that lets you stay focused on your mission. Tucson’s roomy interior is also big enough to accommodate all the tools you need to achieve your wins.",
+
+    "img0": "/carsimg/Elantra.jpg",
+    "Name": "Hyundai Elantra",
+
+    "brand": "Hyundai",
+    "model": "Sedans",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.0",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1100",
+    "day": "/day"
+  },
+
+  {
+    "id": "14",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "eggnessan0@gmail.com",
+    "Phone": "190000988999",
+    "location": "Meradia,dhaka",
+    "message": "Once you’ve decided to make a change, go for it. The driver’s seat in Tucson has a hassle-free line up of the most essential, cutting edge technologies that lets you stay focused on your mission. Tucson’s roomy interior is also big enough to accommodate all the tools you need to achieve your wins.",
+
+    "img0": "/carsimg/nissan-xtrail.jpg",
+    "Name": "X-Trail",
+
+    "brand": "Nissan",
+    "model": "X-Trail",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.0",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1100",
+    "day": "/day"
+  }
+]
