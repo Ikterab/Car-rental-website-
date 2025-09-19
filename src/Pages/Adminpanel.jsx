@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import cardata from '../Reusecode/cardata.json'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdDashboard } from 'react-icons/md'
@@ -11,12 +12,12 @@ import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 
 
 export function AdminPannel() {
-const { submission, updateSubmission } = useContext(SubmissionContext)
+const { submission, updateSubmission,acceptedCars } = useContext(SubmissionContext)
   console.log(submission)
   const navigate = useNavigate()
   const [open, setOpen] = useState(null)
 
-  
+  const totalcars=cardata.length + acceptedCars.length
 //   const acceptOwnercars = (index) => {
 //     const carupdated = [...submission]
 //     carupdated[index].status = 'accepted'
@@ -91,7 +92,8 @@ const { submission, updateSubmission } = useContext(SubmissionContext)
               <h3>Pending</h3>
             </div>
             <div className='displayNumbers'>
-              <h3>Total car rentars</h3>
+              <h3 className="text-[20px]" >Total cars</h3>
+              <p className="text-[20px] font-bold text-[blue] py-7">{totalcars}</p>
             </div>
             <div className='displayNumbers'>
               <h3>Rent cars</h3>
@@ -99,56 +101,110 @@ const { submission, updateSubmission } = useContext(SubmissionContext)
           </div>
           {open === 'rental' && (
             <div>
-              <ul className='flex py-8 px-10 gap-10 text-[20px] font-'>
-                <li>No.</li>
-                <li>Pickup</li>
-                <li>Return</li>
-                <li>location</li>
-                <li>Name</li>
-                <li>Price</li>
-              </ul>
+              <div className='grid grid-cols-7 py-8 px-10 gap-10 text-[17px] font-semibold'>
+                <div className="">No.</div>
+                <div>Pickup</div>
+                <div>Return</div>
+                <div>location</div>
+                <div>Name</div>
+                <div>Price</div>
+                <div>Action</div>
+              </div>
             </div>
-          )}
-          {open === 'owner' && (
-            <div className="">
-              <ul className='flex py-8 px-10 gap-25 xl:gap-10  text-[20px] font-'>
-                <li>No.</li>
-                <li>Name</li>
-                <li>Date</li>
-                {/* <li>location</li> */}
-                <li>Brand</li>
-                <li>Model</li>
-                <li>Contact</li>
-                <li>Email</li>
-                <li>Price</li>
-              </ul>
-              {submission.map((renter, index) => (
-                <div className="flex">
-                  <ul
-                    key={index}
-                    className='flex py-8 px-10 gap-15 text-[17px] '
-                  >
-                    <li className="px-1">{index + 1}</li>
-                    <li  className="px-2">
-                      
-                      {renter?.fname}
-                      {renter?.lname}
-                    </li>
-                    <li>{renter?.date}</li>
-                    {/* <li>{renter?.location}</li> */}
-                    <li>{renter?.brand}</li>
-                    <li>{renter?.model}</li>
-                    <li>{renter.phone}</li>
-                    <li>{renter?.email}</li>
-                    <li>{renter?.price}</li>
-                  </ul>
-                  <button  className="cursor-pointer" onClick={() => acceptOwnercars(index)}>Accept</button>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+          )}  
+
+
+{open==='owner' &&  (
+
+<div>
+
+<div className="grid grid-cols-9 gap-4 px-10 py-6 text-[17px] font-semibold border-b">
+  <div>No.</div>
+  <div>Name</div>
+  <div>Date</div>
+  <div>Brand</div>
+  <div>Model</div>
+  <div>Contact</div>
+  <div>Email</div>
+  <div>Price</div>
+  <div>Action</div>
+</div>
+
+{submission.map((renter, index) => (
+  <div
+    key={index}
+    className="grid grid-cols-9 gap-4 px-10 py-4 border-b items-center text-[15px]"
+  >
+    <div>{index + 1}</div>
+    <div>{renter?.fname} {renter?.lname}</div>
+    <div>{renter?.date}</div>
+    <div>{renter?.brand}</div>
+    <div>{renter?.model}</div>
+    <div>{renter?.phone}</div>
+    <div>{renter?.email}</div>
+    <div>{renter?.price}</div>
+    <div>
+      <button
+        className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+        onClick={() => acceptOwnercars(index)}
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+))}
+
+
+
+</div>)}
+
+ </div>
       </div>
     </>
   )
 }
+
+
+
+
+
+
+
+        //  {open === 'owner' && (
+        //     <div className="">
+        //       <ul className='flex py-8 px-10   ext-[17px] font-'>
+        //         <li className="px-6">No.</li>
+        //         <li className="px-6">Name</li>
+        //         <li className="px-6" >Date</li>
+        //         {/* <li>location</li> */}
+        //         <li className="px-15">Brand</li>
+        //         <li className="px-15">Model</li>
+        //         <li className="px-15">Contact</li>
+        //         <li className="px-15">Email</li>
+        //         <li className="px-10">Price</li>
+        //       </ul>
+        //       {submission.map((renter, index) => (
+        //         <div className="flex">
+        //           <ul
+        //             key={index}
+        //             className='flex py-8 px-10  text-[17px] '
+        //           >
+        //             <li className="px-4">{index + 1}</li>
+        //             <li  className="px-4">
+                      
+        //               {renter?.fname}
+        //               {renter?.lname}
+        //             </li>
+        //             <li className="px-4">{renter?.date}</li>
+        //             {/* <li>{renter?.location}</li> */}
+        //             <li className="px-4">{renter?.brand}</li>
+        //             <li className="px-4">{renter?.model}</li>
+        //             <li className="px-4">{renter.phone}</li>
+        //             <li className="px-4">{renter?.email}</li>
+        //             <li className="px-4">{renter?.price}</li>
+        //           </ul>
+        //           <button  className="cursor-pointer" onClick={() => acceptOwnercars(index)}>Accept</button>
+        //         </div>
+        //       ))}
+        //     </div>
+        //   )}

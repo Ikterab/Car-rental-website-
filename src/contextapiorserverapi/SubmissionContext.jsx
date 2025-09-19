@@ -15,7 +15,11 @@ export function SubmissionProvider({ children }) {
   const storedowneresdata = JSON.parse(localStorage.getItem('submission')) || []
   const [submission, setAllSubmission] = useState(storedowneresdata)
   
-  
+   const storedAccepted = JSON.parse(localStorage.getItem('acceptedCars')) || []
+  const [acceptedCars, setAcceptedCars] = useState(storedAccepted)
+
+
+
   const addSubmission = (newData) => {
     setAllSubmission((prev) => {
       
@@ -45,6 +49,23 @@ return totalsubmission
   
 }
 
+const acceptOwnerCar = (index) => {
+    setAllSubmission((prev) => {
+      const selectedCar = prev[index]
+      if (!selectedCar) return prev
+
+      // Move to acceptedCars
+      const updatedAccepted = [...acceptedCars, { ...selectedCar, status: 'accepted' }]
+      setAcceptedCars(updatedAccepted)
+      localStorage.setItem('acceptedCars', JSON.stringify(updatedAccepted))
+
+      // Remove from pending
+      const updatedSubmissions = prev.filter((_, i) => i !== index)
+      localStorage.setItem('submission', JSON.stringify(updatedSubmissions))
+
+      return updatedSubmissions
+    })
+  }
 
 
  const loggedinUser=JSON.parse(localStorage.getItem('loggedinuser'))  || null
@@ -64,7 +85,7 @@ return totalsubmission
   
   
   return (
-    <SubmissionContext.Provider value={{ submission, addSubmission, updateSubmission, user , setUser }}>
+    <SubmissionContext.Provider value={{ submission, addSubmission, updateSubmission,acceptedCars,acceptOwnerCar, user , setUser }}>
       {children}
     </SubmissionContext.Provider>
   )
