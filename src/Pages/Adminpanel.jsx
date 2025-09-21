@@ -7,6 +7,8 @@ import { TbLogout } from 'react-icons/tb'
 import { LuUser } from 'react-icons/lu'
 import Logo from '../assets/Frame 993.svg'
 import { TbReport } from 'react-icons/tb'
+import hamburger from '../assets/menu-burger-horizontal-svgrepo-com.svg'
+import close from '../assets/closeicon.svg'
 import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 
 
@@ -48,10 +50,13 @@ const { submission, updateSubmission,acceptedCars } = useContext(SubmissionConte
   return (
     <>
       <div className='flex'>
-        <div className='flex h-[1000px] bg-blue-50  px-4 '>
-          <ul className='flex flex-col gap-4 px-4 py-15 font-semibold font-[poppins]'>
-            <li>
+        <div className={`flex h-[1000px] fixed lg:relative  lg:left-0 w-[300px]  bg-blue-50 transition-all duration-300 px-4 ${open==='sidebar' ? "left-0 " :"-left-[300px] "} `} >
+          <ul className='flex flex-col gap-4 px-2 py-15 font-semibold font-[poppins] '>
+            <li className="flex gap-3">
               <img src={Logo} className='h-[50px] w-[200px]' />
+              <img className={`lg:hidden `} 
+              onClick={()=>{setOpen(null)}}
+              src={close} />
             </li>
 
             <li className='flex gap-2 text-[20px]'>
@@ -84,9 +89,15 @@ const { submission, updateSubmission,acceptedCars } = useContext(SubmissionConte
         </div>
 
         <div>
+          <div className="flex gap-4 ">
+            <img  className="w-5  lg:hidden flex"
+            onClick={()=>setOpen('sidebar')}
+            src={hamburger}  />
           <h1 className='flex justify-center  text-2xl py-10'>
             Reservation List
           </h1>
+          </div>
+          
           <div className='flex justify-center gap-10 2xl:ml-20 px-10 '>
             <div className='displayNumbers'>
               <h3>Pending</h3>
