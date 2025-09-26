@@ -53,11 +53,11 @@ function Cardetails() {
 
   const forswitch = () => {
     if (user) {
-      navigate('/RentcarAuth',{state:{cars}})
+      navigate('/RentcarAuth',{state:{cars,pickupDate, returnDate}})
       
     }
     else {
-      navigate('/Login', { state: { from: '/RentcarAuth',cars } })
+      navigate('/Login', { state: { from: '/RentcarAuth',cars,pickupDate,returnDate } })
     }
   }
   

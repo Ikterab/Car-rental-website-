@@ -75,7 +75,7 @@ export function Navbar() {
             </>
           )}
           <li className='sideitem'>
-            <Link to='/Renter'>Become a renter</Link>
+            <Link to='/Renter'>Offer Your car</Link>
           </li>
           <li className='sideitem'>
             <Link to='/Rental'>Rental deals</Link>
@@ -143,7 +143,7 @@ export function Navbar() {
                     location.pathname === '/Renter' ? 'text-blue-600' : ''
                   }`}
                 >
-                  Become a renter
+              Offer Your Car
                 </Link>
               </li>
               <li className='cursor-pointer'>

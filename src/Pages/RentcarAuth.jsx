@@ -55,7 +55,7 @@ function Authofrenter(){
             alert('Please complete all points')
         }
       const submissionData = { ...formdata, car: cars }
-      // addSubmission(submissionData)
+      addSubmission(submissionData)
       
       console.log("Data:", {...formdata, cars })
         alert('Car rent request succeed')
