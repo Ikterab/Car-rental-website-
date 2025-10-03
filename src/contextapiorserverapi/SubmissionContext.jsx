@@ -26,6 +26,9 @@ const storedAcceptedRentals = JSON.parse(localStorage.getItem("acceptedRentals")
 const [acceptedRentals, setAcceptedRentals] = useState(storedAcceptedRentals)
 
 
+const storedNotification=JSON.parse(localStorage.getItem('notification'))
+const [notification,setNotification]=useState(storedNotification) || []
+
   const addSubmission = (newData) => {
     setAllSubmission((prev) => {
       
@@ -94,8 +97,8 @@ const acceptRenters=(index)=>{
     const updateAccepted=[...acceptedRentals,{...selected,status:'accepted'}]
 setAcceptedRentals(updateAccepted)
 localStorage.setItem("acceptedRentals",JSON.stringify(updateAccepted))
-
-const updatedRenter = prev.filter((_, i) => i !== index)
+addNotification(`Your request for ${selected?.car?.Name} has been accepted`)
+const updatedRenter = prev.filter((i) => i !== index)
     localStorage.setItem("renter", JSON.stringify(updatedRenter))
 
     return updatedRenter
@@ -106,7 +109,29 @@ const updatedRenter = prev.filter((_, i) => i !== index)
 }
 
 
+const addNotification=(message,userid)=>{
+const newNotification={
+  id:Date.now(),
+  message,
+  userid,
+  read:false
+}
+const updated=[...notification, newNotification]
+setNotification(updated)
+localStorage.setItem('notification',JSON.stringify(updated))
 
+
+
+}
+
+
+const markAsRead = (id) => {
+  const updated = notification.map(n =>
+    n.id === id ? { ...n, read: true } : n
+  )
+  setNotification(updated)
+  localStorage.setItem("notification", JSON.stringify(updated))
+}
 
  const loggedinUser=JSON.parse(localStorage.getItem('loggedinuser'))  || null
   const [user, setUser] = useState(loggedinUser)
@@ -125,7 +150,7 @@ const updatedRenter = prev.filter((_, i) => i !== index)
   
   
   return (
-    <SubmissionContext.Provider value={{ submission, addSubmission, updateSubmission,acceptedCars,acceptOwnerCar, renter, Aplliedrenters,acceptRenters, user , setUser }}>
+    <SubmissionContext.Provider value={{ submission, addSubmission, updateSubmission,acceptedCars,acceptOwnerCar, renter, Aplliedrenters,acceptRenters, user , setUser,notification, addNotification, markAsRead }}>
       {children}
     </SubmissionContext.Provider>
   )
