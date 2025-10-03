@@ -18,6 +18,12 @@ export function SubmissionProvider({ children }) {
    const storedAccepted = JSON.parse(localStorage.getItem('acceptedCars')) || []
   const [acceptedCars, setAcceptedCars] = useState(storedAccepted)
 
+ 
+  const addrentersubmission=JSON.parse(localStorage.getItem('renter')) || []
+const [renter, setRenter]=useState(addrentersubmission)
+
+const storedAcceptedRentals = JSON.parse(localStorage.getItem("acceptedRentals")) || []
+const [acceptedRentals, setAcceptedRentals] = useState(storedAcceptedRentals)
 
 
   const addSubmission = (newData) => {
@@ -68,6 +74,40 @@ const acceptOwnerCar = (index) => {
   }
 
 
+
+//Renter data
+
+const Aplliedrenters=(renterdata)=>{
+  setRenter((prev)=>{
+    const Renterdata=[...prev,renterdata]
+localStorage.setItem('renter',JSON.stringify(Renterdata))
+
+return Renterdata
+})
+
+}
+
+const acceptRenters=(index)=>{
+  setRenter((prev)=>{
+    const selected=prev[index]
+    if(!selected) return prev
+    const updateAccepted=[...acceptedRentals,{...selected,status:'accepted'}]
+setAcceptedRentals(updateAccepted)
+localStorage.setItem("acceptedRentals",JSON.stringify(updateAccepted))
+
+const updatedRenter = prev.filter((_, i) => i !== index)
+    localStorage.setItem("renter", JSON.stringify(updatedRenter))
+
+    return updatedRenter
+
+
+  }) 
+
+}
+
+
+
+
  const loggedinUser=JSON.parse(localStorage.getItem('loggedinuser'))  || null
   const [user, setUser] = useState(loggedinUser)
  
@@ -85,7 +125,7 @@ const acceptOwnerCar = (index) => {
   
   
   return (
-    <SubmissionContext.Provider value={{ submission, addSubmission, updateSubmission,acceptedCars,acceptOwnerCar, user , setUser }}>
+    <SubmissionContext.Provider value={{ submission, addSubmission, updateSubmission,acceptedCars,acceptOwnerCar, renter, Aplliedrenters,acceptRenters, user , setUser }}>
       {children}
     </SubmissionContext.Provider>
   )

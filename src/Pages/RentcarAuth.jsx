@@ -10,7 +10,7 @@ function Authofrenter(){
     const navigate=useNavigate()  
     const { cars} = location.state || {}
     // const car=cardata[id]
-    const { addSubmission } = useContext(SubmissionContext)
+    const { Aplliedrenters } = useContext(SubmissionContext)
     const [step, setStep] = useState(1)
     const [formdata, setformData] = useState({
       name: '',
@@ -55,7 +55,7 @@ function Authofrenter(){
             alert('Please complete all points')
         }
       const submissionData = { ...formdata, car: cars }
-      addSubmission(submissionData)
+      Aplliedrenters(submissionData)
       
       console.log("Data:", {...formdata, cars })
         alert('Car rent request succeed')

@@ -100,8 +100,7 @@ function RentalPage() {
 const modelChange = (modelItem) => {
   setSelection((prev) => ({
     ...prev,
-    model: prev.model.includes(modelItem)
-      ? prev.model.filter((m) => m !== modelItem) // remove if selected
+    model: prev.model.includes(modelItem )? prev.model.filter((m) => m !== modelItem) // remove if selected
       : [...prev.model, modelItem], // add if not selected
   }))
 }

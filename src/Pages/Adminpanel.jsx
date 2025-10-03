@@ -14,7 +14,7 @@ import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 
 
 export function AdminPannel() {
-const { submission, updateSubmission,acceptedCars } = useContext(SubmissionContext)
+const { submission, updateSubmission,acceptedCars,renter,acceptRenters } = useContext(SubmissionContext)
   console.log(submission)
   const navigate = useNavigate()
   const [open, setOpen] = useState(null)
@@ -38,7 +38,18 @@ const { submission, updateSubmission,acceptedCars } = useContext(SubmissionConte
    }
   }
 
-    const logout = () => {
+
+
+  const acceptRequest=(index)=>{
+    acceptRenters(index)
+  }
+
+  
+  
+  
+  
+  
+  const logout = () => {
   navigate('/Login')
 }
   
@@ -112,15 +123,29 @@ const { submission, updateSubmission,acceptedCars } = useContext(SubmissionConte
           </div>
           {open === 'rental' && (
             <div>
-              <div className='grid grid-cols-7 py-8 px-10 gap-10 text-[17px] font-semibold'>
+              <div className='grid grid-cols-5 py-8 px-4 gap-4 text-[17px] font-semibold'>
                 <div className="">No.</div>
-                <div>Pickup</div>
-                <div>Return</div>
+                {/* <div>Pickup</div>
+                <div>Return</div> */}
                 <div>location</div>
                 <div>Name</div>
                 <div>Price</div>
                 <div>Action</div>
               </div>
+              {renter.map((customer,index)=>(
+                <div key={index} className="grid grid-cols-5 px-4 gap-10 text-[17px] font-semibold items-center">
+                  <div>{index+1}</div>
+                  <div>{customer.location}</div>
+                  <div>{customer.name}</div>
+                  <div>{customer?.car?.price}taka</div>
+                  {/* <div>{index+1}</div>
+                  <div>{index+1}</div>
+                  <div>{index+1}</div> */}
+                <div><button onClick={()=>acceptRequest(index)} className="py-1 px-4 bg-blue-500 hover:bg-blue-400 text-white rounded-md cursor-pointer">Action</button></div>
+                </div>
+              ))
+
+              }
             </div>
           )}  
 
