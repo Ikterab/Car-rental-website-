@@ -9,16 +9,19 @@ import { Carbrand } from "./companies";
 import { Offers } from "./whochoose";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
+import {Bell} from 'lucide-react'
+
 import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 
 export function Navbar() {
   // const navigate = useNavigate()
-  const {user,setUser}=useContext(SubmissionContext)
+  const {user,setUser,notification, markAsRead}=useContext(SubmissionContext)
   const location = useLocation()
   const home=location.pathname==='/'
   const notHome=location.pathname!=='/'
   const [open, setOpen] = useState(null)
   const [menu,setMenu]=useState(false)
+  const [Notification ,setNotification]=useState(false)
   // const [user,setUser]=useState(null)
   // const whochooseRef = useRef(null)
   // const howitworkRef = useRef(null)
@@ -26,6 +29,8 @@ export function Navbar() {
   //   ref.current.scrollIntoView({ behavior: 'smooth' })
   //   setOpen(false)
   // }
+  const userNotification=notification.filter((n)=>n.userid===user?.email && !n.read)
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id)
     if (section) {
@@ -175,7 +180,40 @@ export function Navbar() {
             </ul>
 
             {user ? (
-              <div className='relative'>
+              <div className='flex relative gap-10 items-center' >
+                
+              <div> 
+                
+                 <div className="flex relative">
+               <Bell
+               onClick={()=>setNotification((prev)=>!prev)}
+               className="w-6 h-6 cursor-pointer hover:text-blue-500"
+               />
+               {userNotification.length>0 && (<div className=" absolute  -top-3 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-[1px]  ">{userNotification.length}</div>)
+               
+               
+               }
+             </div>
+                {Notification && (
+      <div className="absolute right-0 mt-2 bg-white shadow-md rounded-md w-[250px] max-h-[300px] overflow-y-auto">
+        {userNotification.length === 0 ? (
+          <p className="text-center p-3 text-gray-500">No new notifications</p>
+        ) : (
+          userNotification.map((n) => (
+            <div
+              key={n.id}
+              onClick={() => markAsRead(n.id)}
+              className="p-3 hover:bg-gray-100 cursor-pointer border-b border-gray-200"
+            >
+              <p className="text-sm text-gray-700">{n.message}</p>
+            </div>
+          ))
+        )}
+      </div>
+    )}
+ </div>  
+               
+            <div>           
                 <div
                   // onClick={() => {
                   //   setOpen(open === 'menu' ? null : 'menu')
@@ -187,6 +225,7 @@ export function Navbar() {
                 >
                   {user.name.charAt(0).toUpperCase()}
                 </div>
+                
                 {menu && (
                   <div className='absolute lg:left-0  right-0  mt-2 bg-white shadow-md rounded-md w-[150px]'>
                     <h3>Hello ,{user.name.toUpperCase()}</h3>
@@ -200,6 +239,9 @@ export function Navbar() {
                   </div>
                 )}
               </div>
+              
+         </div>    
+     
             ) : (
               <ul className='flex gap-[10px] 2xl:gap-[55px] xl:gap-[55px] lg:gap-[55px] md:gap-[55px] sm:gap-[55px] '>
                 <li className='cursor-pointer'>

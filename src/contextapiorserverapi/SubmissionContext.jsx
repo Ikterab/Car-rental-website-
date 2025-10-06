@@ -25,10 +25,10 @@ const [renter, setRenter]=useState(addrentersubmission)
 const storedAcceptedRentals = JSON.parse(localStorage.getItem("acceptedRentals")) || []
 const [acceptedRentals, setAcceptedRentals] = useState(storedAcceptedRentals)
 
+ 
+const storedNotification=JSON.parse(localStorage.getItem('notification')) || []
 
-const storedNotification=JSON.parse(localStorage.getItem('notification'))
-const [notification,setNotification]=useState(storedNotification) || []
-
+const [notification,setNotification]=useState(storedNotification) 
   const addSubmission = (newData) => {
     setAllSubmission((prev) => {
       
