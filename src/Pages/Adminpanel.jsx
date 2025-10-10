@@ -14,7 +14,7 @@ import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 
 
 export function AdminPannel() {
-const { submission, updateSubmission,acceptedCars,renter,acceptRenters } = useContext(SubmissionContext)
+const { submission, updateSubmission,acceptedCars,renter,acceptRenters,rejectRenters } = useContext(SubmissionContext)
   console.log(submission)
   const navigate = useNavigate()
   const [open, setOpen] = useState(null)
@@ -44,7 +44,10 @@ const { submission, updateSubmission,acceptedCars,renter,acceptRenters } = useCo
     acceptRenters(index)
   }
 
-  
+  const rejectRequest=(index)=>{
+    rejectRenters(index)
+  }
+
   
   
   
@@ -123,7 +126,7 @@ const { submission, updateSubmission,acceptedCars,renter,acceptRenters } = useCo
           </div>
           {open === 'rental' && (
             <div>
-              <div className='grid grid-cols-5 py-8 px-4 gap-4 text-[17px] font-semibold'>
+              <div className='grid grid-cols-6 py-8 px-4 gap-4 text-[17px] font-semibold'>
                 <div className="">No.</div>
                 {/* <div>Pickup</div>
                 <div>Return</div> */}
@@ -133,7 +136,7 @@ const { submission, updateSubmission,acceptedCars,renter,acceptRenters } = useCo
                 <div>Action</div>
               </div>
               {renter.map((customer,index)=>(
-                <div key={index} className="grid grid-cols-5 px-4 gap-10 text-[17px] font-semibold items-center">
+                <div key={index} className="grid grid-cols-6 px-4 gap-10 text-[17px] font-semibold items-center">
                   <div>{index+1}</div>
                   <div>{customer.location}</div>
                   <div>{customer.name}</div>
@@ -141,8 +144,16 @@ const { submission, updateSubmission,acceptedCars,renter,acceptRenters } = useCo
                   {/* <div>{index+1}</div>
                   <div>{index+1}</div>
                   <div>{index+1}</div> */}
-                <div><button onClick={()=>acceptRequest(index)} className="py-1 px-4 bg-blue-500 hover:bg-blue-400 text-white rounded-md cursor-pointer">Action</button></div>
+                <div><button onClick={()=>acceptRequest(index)} 
+                disabled={customer?.status==='accepted'}
+                className={`py-1 px-4 text-white rounded-md  ${customer?.status==='accepted'? 'bg-red-600 cursor-not-allowed':'cursor-pointer  bg-blue-500 hover:bg-blue-400' }`}>Action</button>
                 </div>
+                <div><button onClick={()=>rejectRequest(index)} 
+                disabled={customer?.status==='rejected'}
+                className={`py-1 px-4 text-white rounded-md  ${customer?.status==='rejected'? 'bg-red-600 cursor-not-allowed':'cursor-pointer  bg-blue-500 hover:bg-blue-400' }`}>Rejected</button>
+                </div>
+                </div>
+                
               ))
 
               }
@@ -181,7 +192,10 @@ const { submission, updateSubmission,acceptedCars,renter,acceptRenters } = useCo
     <div>{renter?.price}</div>
     <div>
       <button
-        className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+        disabled={renter?.status==='accepted'}
+        className={` text-white px-3 py-1 rounded ${renter?.status==='accepted'?' bg-red-500 cursor-not-allowed ':' hover:bg-blue-600 bg-blue-500'} `}
+        
+        
         onClick={() => acceptOwnercars(index)}
       >
         Accept

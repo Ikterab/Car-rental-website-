@@ -25,7 +25,8 @@ const [renter, setRenter]=useState(addrentersubmission)
 const storedAcceptedRentals = JSON.parse(localStorage.getItem("acceptedRentals")) || []
 const [acceptedRentals, setAcceptedRentals] = useState(storedAcceptedRentals)
 
- 
+ const storedRejectedRentals=JSON.parse(localStorage.getItem('rejectedRentals')) ||[]
+ const [rejectRentals,setrejectRentals]=useState(storedRejectedRentals) 
 const storedNotification=JSON.parse(localStorage.getItem('notification')) || []
 
 const [notification,setNotification]=useState(storedNotification) 
@@ -92,19 +93,39 @@ return Renterdata
 
 const acceptRenters=(index)=>{
   setRenter((prev)=>{
-    const selected=prev[index]
+const updatedRenters=[...prev]
+    const selected=updatedRenters[index]
+
     if(!selected) return prev
-    const updateAccepted=[...acceptedRentals,{...selected,status:'accepted'}]
+    updatedRenters[index]={...selected,status:'accepted'}
+    const updateAccepted=[...acceptedRentals,updatedRenters[index]]
+    
 setAcceptedRentals(updateAccepted)
 localStorage.setItem("acceptedRentals",JSON.stringify(updateAccepted))
-addNotification(`Your request for ${selected?.car?.Name} has been accepted`)
-const updatedRenter = prev.filter((i) => i !== index)
-    localStorage.setItem("renter", JSON.stringify(updatedRenter))
-
-    return updatedRenter
+addNotification(`Your request for ${updatedRenters[index]?.car?.Name} has been accepted`, updatedRenters[index]?.userid || updatedRenters[index]?.email)
+// const updatedRenter = prev.filter((i) => i !== index)
+//     localStorage.setItem("renter", JSON.stringify(updatedRenter))
+localStorage.setItem('renter',JSON.stringify(updatedRenters))
+    return updatedRenters
 
 
   }) 
+
+}
+const rejectRenters=(index)=>{
+setRenter((prev)=>{
+  const updatedRenters=[...prev]
+   const selected=updatedRenters[index]
+   if(!selected) return prev
+updatedRenters[index]={...selected,status:'rejected'}
+const updateRejected=[...rejectRentals,updatedRenters[index]]
+setrejectRentals(updateRejected)
+localStorage.setItem('rejectedRentals',JSON.stringify(updateRejected) )
+addNotification(`Your request for ${updatedRenters[index]?.car?.name} has not been accepted`,updatedRenters[index]?.userid || updatedRenters[index].email)
+ localStorage.setItem('renter',JSON.stringify(updatedRenters))
+    return updatedRenters
+
+})
 
 }
 
@@ -133,6 +154,8 @@ const markAsRead = (id) => {
   localStorage.setItem("notification", JSON.stringify(updated))
 }
 
+
+//
  const loggedinUser=JSON.parse(localStorage.getItem('loggedinuser'))  || null
   const [user, setUser] = useState(loggedinUser)
  
@@ -150,7 +173,7 @@ const markAsRead = (id) => {
   
   
   return (
-    <SubmissionContext.Provider value={{ submission, addSubmission, updateSubmission,acceptedCars,acceptOwnerCar, renter, Aplliedrenters,acceptRenters, user , setUser,notification, addNotification, markAsRead }}>
+    <SubmissionContext.Provider value={{ submission, addSubmission, updateSubmission,acceptedCars,acceptOwnerCar, renter, Aplliedrenters,acceptRenters,rejectRenters, user , setUser,notification, addNotification, markAsRead }}>
       {children}
     </SubmissionContext.Provider>
   )

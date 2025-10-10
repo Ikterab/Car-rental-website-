@@ -21,7 +21,7 @@ export function Navbar() {
   const notHome=location.pathname!=='/'
   const [open, setOpen] = useState(null)
   const [menu,setMenu]=useState(false)
-  const [Notification ,setNotification]=useState(false)
+  const [Notification ,setisNotification]=useState(false)
   // const [user,setUser]=useState(null)
   // const whochooseRef = useRef(null)
   // const howitworkRef = useRef(null)
@@ -186,7 +186,7 @@ export function Navbar() {
                 
                  <div className="flex relative">
                <Bell
-               onClick={()=>setNotification((prev)=>!prev)}
+               onClick={()=>setisNotification((prev)=>!prev)}
                className="w-6 h-6 cursor-pointer hover:text-blue-500"
                />
                {userNotification.length>0 && (<div className=" absolute  -top-3 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-[1px]  ">{userNotification.length}</div>)
