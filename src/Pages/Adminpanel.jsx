@@ -126,7 +126,7 @@ const { submission, updateSubmission,acceptedCars,renter,acceptRenters,rejectRen
           </div>
           {open === 'rental' && (
             <div>
-              <div className='grid grid-cols-6 py-8 px-4 gap-4 text-[17px] font-semibold'>
+              <div className='grid grid-cols-6 py-8 px-4 border-b  gap-4 text-[17px] font-semibold'>
                 <div className="">No.</div>
                 {/* <div>Pickup</div>
                 <div>Return</div> */}
@@ -136,7 +136,7 @@ const { submission, updateSubmission,acceptedCars,renter,acceptRenters,rejectRen
                 <div>Action</div>
               </div>
               {renter.map((customer,index)=>(
-                <div key={index} className="grid grid-cols-6 px-4 gap-10 text-[17px] font-semibold items-center">
+                <div key={index} className="grid grid-cols-6 px-4 gap-10 text-[17px] border-b py-4  items-center">
                   <div>{index+1}</div>
                   <div>{customer.location}</div>
                   <div>{customer.name}</div>
@@ -144,14 +144,36 @@ const { submission, updateSubmission,acceptedCars,renter,acceptRenters,rejectRen
                   {/* <div>{index+1}</div>
                   <div>{index+1}</div>
                   <div>{index+1}</div> */}
-                <div><button onClick={()=>acceptRequest(index)} 
-                disabled={customer?.status==='accepted'}
-                className={`py-1 px-4 text-white rounded-md  ${customer?.status==='accepted'? 'bg-red-600 cursor-not-allowed':'cursor-pointer  bg-blue-500 hover:bg-blue-400' }`}>Action</button>
-                </div>
-                <div><button onClick={()=>rejectRequest(index)} 
-                disabled={customer?.status==='rejected'}
-                className={`py-1 px-4 text-white rounded-md  ${customer?.status==='rejected'? 'bg-red-600 cursor-not-allowed':'cursor-pointer  bg-blue-500 hover:bg-blue-400' }`}>Rejected</button>
-                </div>
+                   <div className="block">
+                  { 
+                  customer?.status==='accepted' ? (<button 
+                    disabled 
+                    className="block py-1 px-4 text-white rounded-md bg-green cursor-not-allowed ">Accepted</button>) 
+                                               : customer?.status==='rejected' ?
+                                               (<button 
+                                                disabled 
+                                                className="block py-1 px-4 text-white rounded-md bg-red cursor-not-allowed">Rejected</button>)
+                                               :(
+        <div className="flex gap-3 ">
+                <button onClick={()=>acceptRequest(index)} 
+                // disabled={customer?.status==='accepted'}
+                className='py-1 px-4 text-white rounded-md cursor-pointer  bg-blue-500 hover:bg-blue-400'>Action</button>
+                  <button onClick={()=>rejectRequest(index)} 
+                // disabled={customer?.status==='rejected'}
+                className='py-1 px-4 text-white rounded-md cursor-pointer  bg-blue-500 hover:bg-red-400'>Reject</button>
+                
+
+
+               </div>
+               ) 
+               }
+           </div>
+                
+                
+              
+               
+               
+               
                 </div>
                 
               ))

@@ -70,6 +70,7 @@ const acceptOwnerCar = (index) => {
       localStorage.setItem('acceptedCars', JSON.stringify(updatedAccepted))
 
       // Remove from pending
+      addNotification(`Your request has been accepted`, selectedCar?.userid || selectedCar?.email)
       const updatedSubmissions = prev.filter((_, i) => i !== index)
       localStorage.setItem('submission', JSON.stringify(updatedSubmissions))
 
@@ -121,7 +122,7 @@ updatedRenters[index]={...selected,status:'rejected'}
 const updateRejected=[...rejectRentals,updatedRenters[index]]
 setrejectRentals(updateRejected)
 localStorage.setItem('rejectedRentals',JSON.stringify(updateRejected) )
-addNotification(`Your request for ${updatedRenters[index]?.car?.name} has not been accepted`,updatedRenters[index]?.userid || updatedRenters[index].email)
+addNotification(`Your request for ${updatedRenters[index]?.car?.Name} has not been accepted`,updatedRenters[index]?.userid || updatedRenters[index].email)
  localStorage.setItem('renter',JSON.stringify(updatedRenters))
     return updatedRenters
 

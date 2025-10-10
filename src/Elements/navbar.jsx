@@ -195,7 +195,7 @@ export function Navbar() {
                }
              </div>
                 {Notification && (
-      <div className="absolute right-0 mt-2 bg-white shadow-md rounded-md w-[250px] max-h-[300px] overflow-y-auto">
+      <div className="absolute right-0 mt-10 bg-white shadow-md rounded-md w-[450px] max-h-[300px] overflow-y-auto">
         {userNotification.length === 0 ? (
           <p className="text-center p-3 text-gray-500">No new notifications</p>
         ) : (

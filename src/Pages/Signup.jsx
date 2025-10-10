@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, Link} from "react-router-dom";
 import { AiFillEye , AiFillEyeInvisible} from "react-icons/ai";
+// import {Modal} from 'antd'
 import { useState } from "react";
 function Signuppage() {
   const navigate=useNavigate()
@@ -10,6 +11,7 @@ function Signuppage() {
 //   address: '',
 //   password: '',
 //   confirmpass: ''})
+// const [modal , setModal]=useState(false)
 const [value, setValue] = useState({
   name:'',
   email: '',
@@ -58,7 +60,9 @@ if (value.password !==value.confirmpassword) {
     if (Object.keys(newError).length === 0) {
       localStorage.setItem('signupuser', JSON.stringify(value))
         console.log('✅ User stored in localStorage:', value)
-      alert('Register successfull')
+       alert('Register successfull')
+      
+      
       navigate('/Login')
     } 
     
